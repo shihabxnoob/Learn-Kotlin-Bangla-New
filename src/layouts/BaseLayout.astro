@@ -4,6 +4,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import { site } from '../config/site';
 interface Props { title?: string; description?: string }
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { title = `${site.name} | বাংলায় Kotlin শিখুন`, description = site.description } = Astro.props;
 ---
 <!doctype html>
@@ -16,7 +17,7 @@ const { title = `${site.name} | বাংলায় Kotlin শিখুন`, d
     <meta name="theme-color" content="#6b3fe0" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />

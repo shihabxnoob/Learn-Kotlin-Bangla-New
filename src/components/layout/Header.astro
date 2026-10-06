@@ -1,10 +1,11 @@
 ---
 import { site } from '../../config/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <header>
   <div class="container bar">
-    <a href="/" class="brand" aria-label={`${site.name} হোম`}>
-      <img src="/favicon.svg" alt="" width="28" height="28" />
+    <a href={`${base}/`} class="brand" aria-label={`${site.name} হোম`}>
+      <img src={`${base}/favicon.svg`} alt="" width="28" height="28" />
       <span>{site.name}</span>
     </a>
     <!-- পরে nav / theme toggle এখানে যোগ হবে -->
@@ -12,6 +13,6 @@ import { site } from '../../config/site';
 </header>
 <style>
   header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .bar { display: flex; align-items: center; height: 60px; }
+  .bar { display: flex; align-items: center; height: 56px; }
   .brand { display: inline-flex; align-items: center; gap: var(--s3); text-decoration: none; font-weight: 700; font-size: 1.125rem; }
 </style>

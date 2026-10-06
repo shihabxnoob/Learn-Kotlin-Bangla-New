@@ -7,7 +7,7 @@ const { filename } = Astro.props;
   <pre><code><slot /></code></pre>
 </figure>
 <style>
-  figure { margin: 0; background: var(--code-bg); color: var(--code-ink); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 8px 8px 0 var(--accent); }
+  figure { margin: 0; background: var(--code-bg); color: var(--code-ink); border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); }
   figcaption { display: flex; align-items: center; gap: 6px; padding: var(--s3) var(--s4); border-bottom: 1px solid #ffffff1f; font: 500 .8125rem var(--font-code); color: var(--c-dim); }
   figcaption i { width: 10px; height: 10px; border-radius: 50%; background: #ffffff33; }
   figcaption span { margin-left: var(--s2); }

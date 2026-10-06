@@ -9,7 +9,7 @@ import { roadmap } from '../../data/roadmap';
       {roadmap.map((s) => (
         <li>
           <span class="num" aria-hidden="true">{s.order}</span>
-          <div class="card">
+          <div class="card" data-n={s.order}>
             <h3>{s.title}</h3>
             <p>{s.description}</p>
           </div>
@@ -25,7 +25,8 @@ import { roadmap } from '../../data/roadmap';
   ol::before { content: ''; position: absolute; left: 17px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
   li { display: grid; grid-template-columns: 36px 1fr; gap: var(--s4); position: relative; }
   .num { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font: 500 .9375rem var(--font-code); }
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s4) var(--s6); transition: border-color .15s; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s4) var(--s6); position: relative; overflow: hidden; box-shadow: var(--shadow); transition: border-color .15s; }
+  .card::after { content: attr(data-n); position: absolute; right: 14px; top: -6px; font: 700 4.5rem/1 var(--font-code); color: var(--line); opacity: .7; pointer-events: none; }
   .card:hover { border-color: var(--accent); }
   h3 { font-size: 1.125rem; font-family: var(--font-code); font-weight: 500; }
   .card p { color: var(--muted); margin-top: var(--s1); }
