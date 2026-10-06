@@ -1,0 +1,38 @@
+---
+import { roadmap } from '../../data/roadmap';
+---
+<section id="roadmap" aria-labelledby="roadmap-title">
+  <div class="container">
+    <h2 id="roadmap-title">আপনার Kotlin যাত্রার ৭টি ধাপ</h2>
+    <p class="sub">প্রতিটি ধাপ আগেরটির ওপর দাঁড়িয়ে। ক্রমানুসারে এগোলে কিছুই বাদ পড়বে না।</p>
+    <ol>
+      {roadmap.map((s) => (
+        <li>
+          <span class="num" aria-hidden="true">{s.order}</span>
+          <div class="card">
+            <h3>{s.title}</h3>
+            <p>{s.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  section { padding-block: var(--s16); border-top: 1px solid var(--line); }
+  .sub { color: var(--muted); margin-top: var(--s2); max-width: 40em; }
+  ol { list-style: none; margin: var(--s12) 0 0; padding: 0; display: grid; gap: var(--s6); position: relative; }
+  ol::before { content: ''; position: absolute; left: 17px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  li { display: grid; grid-template-columns: 36px 1fr; gap: var(--s4); position: relative; }
+  .num { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font: 500 .9375rem var(--font-code); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s4) var(--s6); transition: border-color .15s; }
+  .card:hover { border-color: var(--accent); }
+  h3 { font-size: 1.125rem; font-family: var(--font-code); font-weight: 500; }
+  .card p { color: var(--muted); margin-top: var(--s1); }
+  @media (min-width: 1024px) {
+    section { padding-block: var(--s24); }
+    ol { grid-template-columns: repeat(3, 1fr); gap: var(--s8) var(--s6); }
+    ol::before { display: none; }
+    li { grid-template-columns: 1fr; gap: var(--s3); }
+  }
+</style>
